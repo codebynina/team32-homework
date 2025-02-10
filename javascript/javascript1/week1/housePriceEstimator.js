@@ -1,14 +1,14 @@
 let peterWidth = 8;
 let peterDepth = 10;
 let peterHeight = 10;
-let peterGardensize = 100;
+let peterGardenSize = 100;
 let peterHouseCost = 2500000;
 
 
 let juliaWidth = 5;
 let juliaDepth = 11;
 let juliaHeight = 8;
-let juliaGardensiz = 70;
+let juliaGardenSize = 70;
 let juliaHouseCost = 1000000;
 
 
