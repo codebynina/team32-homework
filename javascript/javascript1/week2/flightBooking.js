@@ -1,18 +1,27 @@
-function getFullname(firstname, surname, useFormalName = false, title = "Mx.") {
+function getFullname(firstname, surname, useFormalName = false, title = null) {
     if (!firstname.trim() || !surname.trim()) {
         return "Invalid name";
     }
-    
-    let prefix = useFormalName ? `${title} ` : "";
-    
-    return `${prefix}${firstname} ${surname}`;
-    
+
+    const maleNames = ["John", "Benjamin", "Ross"];
+    const femaleNames = [ "Jessica", "Anna", "Jane"];
+
+    if (useFormalName && title === null) {
+        if (maleNames.includes(firstname)) {
+            title = "Mr.";
+        } else if (femaleNames.includes(firstname)) {
+            title = "Ms.";
+        } else {
+            title = "Mx."; // Default for unknown or gender-neutral names
+        }
     }
-    
-    let fullname1 = getFullname("Benjamin", "Hughes", true);
-    let fullname2 = getFullname("Ross", "Geller", true, "Dr.");
-    let fullname3 = getFullname("Jane", "Doe", false);
-    
-    console.log(fullname1);
-    console.log(fullname2);
-    console.log(fullname3);
+
+    let prefix = useFormalName ? `${title} ` : "";
+
+    return `${prefix}${firstname} ${surname}`;
+}
+
+// Test cases
+console.log(getFullname("Benjamin", "Hughes", true)); // Mr. Benjamin Hughes
+console.log(getFullname("Ross", "Geller", true, "Dr.")); // Dr. Ross Geller
+console.log(getFullname("Jane", "Doe", true)); // Ms. Jane Doe
